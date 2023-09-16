@@ -4,6 +4,6 @@
 #define _PRINTF_C
 #include <unistd.h>
 /* task 0 */
-int _putchar(int c);
+int _putchar(char c);
 int _printf(const char *format, ...);
 #endif
