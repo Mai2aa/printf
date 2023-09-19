@@ -124,4 +124,3 @@ int print_int(va_list list1, char buffer[],
 	i++;
 	return (write_number(is_negative, i, buffer, flags, width, precision, size));
 }
-
