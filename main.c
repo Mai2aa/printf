@@ -25,5 +25,7 @@ int main(void)
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
     _printf("%b", 98);
+    Printf(“%r”, print_reverse);
+    _Printf(“%r”, print_reverse);
     return (0);
 }

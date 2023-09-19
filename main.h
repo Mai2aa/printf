@@ -54,6 +54,9 @@ int is_digit(char);
 /*task 2*/
 int print_binary(va_list list1, char buffer[],
 		int flags, int width, int precision, int size);
+/*task 13 */
+int print_reverse(va_list list1, char buffer[],
+        int flags, int width, int precision, int size);
 /* task 7, 11, 12 */
 int handle_flags(const char *format, int *i);
 /* task 9 */
@@ -61,5 +64,4 @@ int handle_width(const char *format, int *i, va_list list);
 /* task 10 */
 int handle_precision(const char *format, int *i, va_list list);
 int handle_size(const char *format, int *i);
-
 #endif
