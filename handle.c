@@ -17,7 +17,7 @@ int handle_print(const char *fmt, int *index, va_list list, char buffer[],
 	int i, len = 0, counter = -1;
 	fmt_t fmt_list1[] = {
 		{'c', print_ch}, {'s', print_str}, {'%', print_per},
-		{'i', print_int}, {'d', print_int}, {'b', print_binary}, {'r', print_reverse}, {'\0', NULL}
+		{'i', print_int}, {'d', print_int}, {'b', print_binary}, {'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
 	};
 	for (i = 0; fmt_list1[i].form != '\0'; i++)
 		if (fmt[*index] == fmt_list1[i].form)

@@ -64,4 +64,7 @@ int handle_width(const char *format, int *i, va_list list);
 /* task 10 */
 int handle_precision(const char *format, int *i, va_list list);
 int handle_size(const char *format, int *i);
+/*task 14 */
+int print_rot13string(va_list list1, char buffer[],
+        int flags, int width, int precision, int size);
 #endif
