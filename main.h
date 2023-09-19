@@ -58,9 +58,4 @@ int handle_width(const char *format, int *i, va_list list);
 /* task 10 */
 int handle_precision(const char *format, int *i, va_list list);
 int handle_size(const char *format, int *i);
-/* task 2 */
-int print_binary(va_list types, char buffer[],
-        int flags, int width, int precision, int size);
-int print_unsigned(va_list types, char buffer[],
-        int flags, int width, int precision, int size);
 #endif
