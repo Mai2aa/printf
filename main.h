@@ -53,7 +53,7 @@ long int convert_size_number(long int num, int size);
 int is_digit(char);
 /*task 2*/
 int print_binary(va_list list1, char buffer[],
-        int flags, int width, int precision, int size);
+		int flags, int width, int precision, int size);
 /* task 7, 11, 12 */
 int handle_flags(const char *format, int *i);
 /* task 9 */

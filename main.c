@@ -24,5 +24,6 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
+    _printf("%b", 98);
     return (0);
 }
