@@ -17,7 +17,9 @@ int handle_print(const char *fmt, int *index, va_list list, char buffer[],
 	int i, len = 0, counter = -1;
 	fmt_t fmt_list1[] = {
 		{'c', print_ch}, {'s', print_str}, {'%', print_per},
-		{'i', print_int}, {'d', print_int}, {'b', print_binary}, {'p', print_pointer}, {'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
+		{'i', print_int}, {'d', print_int}, {'b', print_binary},
+		{'p', print_pointer}, {'r', print_reverse}, {'R', print_rot13string},
+		{'\0', NULL}
 	};
 	for (i = 0; fmt_list1[i].form != '\0'; i++)
 		if (fmt[*index] == fmt_list1[i].form)
@@ -166,5 +168,59 @@ int write_num(int index, char buffer[],
 	if (extra_c)
 		buffer[--index] = extra_c;
 	return (write(1, &buffer[index], longi));
+}
+/**
+ * write_pointer - Write address
+ * @buffer: Arrays
+ * @index: Index
+ * @longi: Length
+ * @width: Width
+ * @flags: Flags
+ * @padd: Char
+ * @extra_c: Char representing extra char
+ * @start: Index at which padding should start
+ * Return: Number of chars.
+ */
+int write_pointer(char buffer[], int index, int longi,
+		int width, int flags, char padd, char extra_c, int start)
+{
+	int i;
+
+	if (width > longi)
+	{
+		for (i = 3; i < width - longi + 3; i++)
+			buffer[i] = padd;
+		buffer[i] = '\0';
+		if (flags & F_MINUS && padd == ' ')
+		{
+			buffer[--index] = 'x';
+			buffer[--index] = '0';
+			if (extra_c)
+				buffer[--index] = extra_c;
+			return (write(1, &buffer[index], longi) + write(1, &buffer[3], i - 3));
+		}
+		else if (!(flags & F_MINUS) && padd == ' ')
+		{
+			buffer[--index] = 'x';
+			buffer[--index] = '0';
+			if (extra_c)
+				buffer[--index] = extra_c;
+			return (write(1, &buffer[3], i - 3) + write(1, &buffer[index], longi));
+		}
+		else if (!(flags & F_MINUS) && padd == '0')
+		{
+			if (extra_c)
+				buffer[start] = extra_c;
+			buffer[1] = '0';
+			buffer[2] = 'x';
+			return (write(1, &buffer[start], i - start) +
+					write(1, &buffer[index], longi - (1 - start) - 2));
+		}
+	}
+	buffer[--index] = 'x';
+	buffer[--index] = '0';
+	if (extra_c)
+		buffer[--index] = extra_c;
+	return (write(1, &buffer[index], BUFF_SIZE - index - 1));
 }
 

@@ -25,7 +25,8 @@ int main(void)
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
     _printf("%b", 98);
-    Printf(“%r”, print_reverse);
-    _Printf(“%r”, print_reverse);
+    _printf("Unknown:[%r]\n");
+    _printf("Address:[%p]\n", addr);
+    printf("Address:[%p]\n", addr);
     return (0);
 }
