@@ -67,4 +67,9 @@ int handle_size(const char *format, int *i);
 /*task 14 */
 int print_rot13string(va_list list1, char buffer[],
         int flags, int width, int precision, int size);
+/*task 6 */
+int print_pointer(va_list list1, char buffer[],
+        int flags, int width, int precision, int size);
+int write_pointer(char buffer[], int ind, int length,
+        int width, int flags, char padd, char extra_c, int padd_start);
 #endif
